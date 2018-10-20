@@ -26,7 +26,7 @@ public class Eater implements KeyboardHandler {
         tastyBar = new TastyBar();
         timer = new Clock();
 
-        timer.start(1);
+        timer.start(20);
 /*
         while(timer.isTimeUp()){
             this.gameOver = true;
