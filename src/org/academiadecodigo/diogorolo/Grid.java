@@ -2,24 +2,22 @@ package org.academiadecodigo.diogorolo;
 
 public class Grid {
     //PROPERTIES
-    private int cols;
-    private int rows;
+    public static final int COLS = 10;
+    public static final int ROWS = 10;
     public static final int CELL_SIZE = 50;
-    public static final int PADDING = 10;
+    public static final int PADDING = 300;
     private Cell[][] cells;
 
     //CONSTRUCTOR
-    public Grid(int cols, int rows) {
-        this.cols = cols;
-        this.rows = rows;
-        cells = new Cell[rows][cols];
+    public Grid() {
+        cells = new Cell[ROWS][COLS];
         setCells();
     }
 
     //METHODS
     private void setCells() {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLS; j++) {
                 cells[i][j] = new Cell(i, j);
             }
         }
@@ -38,11 +36,11 @@ public class Grid {
     }
 
     public int getCols() {
-        return cols;
+        return COLS;
     }
 
     public int getRows() {
-        return rows;
+        return ROWS;
     }
 
     //TO DELETE
