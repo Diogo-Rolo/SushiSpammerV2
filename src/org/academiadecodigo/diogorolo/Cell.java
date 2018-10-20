@@ -10,6 +10,7 @@ public class Cell {
     private int timesToBeSpammed;
     private boolean Eaten;
     private Picture pic;
+    private Boolean hasSushi = true;
     private GameObject object;
 
     //CONSTRUCTOR
@@ -34,17 +35,22 @@ public class Cell {
 
     public int eatSpam(){
         int tasteGain = 0;
-        if (Eaten){
-            pic.delete();
-            tasteGain = 0;
-        }
 
-        if (timesToBeSpammed == 0){
-            Eaten = true;
-            tasteGain = object.getHowTasty();
+        if (hasSushi) {
+            if (Eaten){
+                pic.delete();
+                hasSushi = false;
+                tasteGain = 0;
+                return object.getHowTasty();
+            }
+
+            if (timesToBeSpammed == 0){
+                Eaten = true;
+            }
+            timesToBeSpammed--;
+            return tasteGain;
         }
-        timesToBeSpammed--;
-        return tasteGain;
+        return 0;
     }
 
     public boolean isEaten(){
