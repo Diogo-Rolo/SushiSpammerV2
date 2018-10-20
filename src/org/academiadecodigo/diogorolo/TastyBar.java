@@ -8,8 +8,6 @@ public class TastyBar {
     //PROPERTIES
 
     private Rectangle tastyBarRectangle;
-    private int positionInX;
-    private int positionInY;
     private int tastyBarCapacity;
 
 
@@ -26,8 +24,6 @@ public class TastyBar {
 
     public TastyBar (int positionInX, int positionInY, int tastyBarCapacity){
 
-        this.positionInX = positionInX;
-        this.positionInY = positionInY;
         this.tastyBarCapacity = tastyBarCapacity;
 
         tastyBarRectangle = new Rectangle(positionInX, positionInY, Grid.CELL_SIZE, Grid.CELL_SIZE);
@@ -42,19 +38,20 @@ public class TastyBar {
      * translate called as grow grows both sides.
      * @param tastyBarPointsIncrement
      */
+    int totalBarPointsIncrement = 0 ;
 
     public void tastyBarIncrement (int tastyBarPointsIncrement) {
 
-        int totalBarPointsIncrement = 0 ;
-
-        if (tastyBarPointsIncrement == tastyBarCapacity) { return; };
+        if (totalBarPointsIncrement >= tastyBarCapacity) { return; };
 
         tastyBarRectangle.grow(0, tastyBarPointsIncrement);
         tastyBarRectangle.translate(0, -tastyBarPointsIncrement);
         tastyBarRectangle.fill();
 
         totalBarPointsIncrement += tastyBarPointsIncrement;
-
+        System.out.println(totalBarPointsIncrement + "tasty total");
+        System.out.println(tastyBarPointsIncrement + "tasty increment");
+        System.out.println("-----------------------------");
     }
 
 }
