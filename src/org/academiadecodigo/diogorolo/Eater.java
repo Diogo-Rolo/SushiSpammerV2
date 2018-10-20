@@ -11,13 +11,11 @@ public class Eater implements KeyboardHandler {
     private TastyBar tastyBar;
 
     //CONSTRUCTOR
-    public Eater(int cols, int rows){
-        gameGrid = new Grid(cols, rows);
+    public Eater(){
+        gameGrid = new Grid();
         cursor = new Cursor();
         kappa = new KeyboardController(this);
-        tastyBar = new TastyBar(Grid.PADDING+gameGrid.getCols()*Grid.CELL_SIZE,
-                (Grid.PADDING*2+gameGrid.getRows()*Grid.CELL_SIZE- gameGrid.getRows())-Grid.CELL_SIZE, ((Grid.CELL_SIZE*rows )/2)-10);
-
+        tastyBar = new TastyBar();
     }
 
 

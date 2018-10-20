@@ -8,25 +8,24 @@ public class TastyBar {
     //PROPERTIES
 
     private Rectangle tastyBarRectangle;
-    private int tastyBarCapacity;
+    private int maximumTastybarSize;
 
 
     //CONSTRUCTOR
 
     /**
      * TastyBar Position
-     * @param positionInX
-     * @param positionInY
      *
      * Limit until the tastybar is filled
-     * @param tastyBarCapacity
+     * @param maximumTastybarSize
      */
 
-    public TastyBar (int positionInX, int positionInY, int tastyBarCapacity){
 
-        this.tastyBarCapacity = tastyBarCapacity;
+    public TastyBar (){
 
-        tastyBarRectangle = new Rectangle(positionInX, positionInY, Grid.CELL_SIZE, Grid.CELL_SIZE);
+        this.maximumTastybarSize = ((Grid.CELL_SIZE * Grid.ROWS) / 2) - 25;
+
+        tastyBarRectangle = new Rectangle(Grid.COLS * Grid.CELL_SIZE + Grid.PADDING,Grid.ROWS * Grid.CELL_SIZE + Grid.PADDING - Grid.CELL_SIZE, Grid.CELL_SIZE, Grid.CELL_SIZE);
         tastyBarRectangle.draw();
         tastyBarRectangle.fill();
     }
@@ -38,18 +37,26 @@ public class TastyBar {
      * translate called as grow grows both sides.
      * @param tastyBarPointsIncrement
      */
-    int totalBarPointsIncrement = 0 ;
+    int totalBarIncremented = 0 ;
 
     public void tastyBarIncrement (int tastyBarPointsIncrement) {
 
-        if (totalBarPointsIncrement >= tastyBarCapacity) { return; };
+        if (totalBarIncremented >= maximumTastybarSize) {
+            return; }
 
-        tastyBarRectangle.grow(0, tastyBarPointsIncrement);
+        if (totalBarIncremented + tastyBarPointsIncrement >= maximumTastybarSize){
+            tastyBarRectangle.grow(0, (maximumTastybarSize - totalBarIncremented));
+            tastyBarRectangle.translate(0 , - (maximumTastybarSize - totalBarIncremented));
+            totalBarIncremented += (maximumTastybarSize - totalBarIncremented);
+            return;
+        }
+
+        totalBarIncremented += tastyBarPointsIncrement;
         tastyBarRectangle.translate(0, -tastyBarPointsIncrement);
-        tastyBarRectangle.fill();
+        tastyBarRectangle.grow(0, tastyBarPointsIncrement);
 
-        totalBarPointsIncrement += tastyBarPointsIncrement;
-        System.out.println(totalBarPointsIncrement + "tasty total");
+
+        System.out.println(totalBarIncremented + "tasty total");
         System.out.println(tastyBarPointsIncrement + "tasty increment");
         System.out.println("-----------------------------");
     }
