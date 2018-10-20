@@ -8,9 +8,9 @@ public class Cell {
     private int col;
     private int row;
     private int timesToBeSpammed;
-    private boolean Eaten;
+    private boolean eaten;
     private Picture pic;
-    private Boolean hasSushi = true;
+    private boolean hasSushi = true;
     private GameObject object;
 
     //CONSTRUCTOR
@@ -36,25 +36,19 @@ public class Cell {
     public int eatSpam(){
         int tasteGain = 0;
 
-        if (hasSushi) {
-            if (Eaten){
-                pic.delete();
-                hasSushi = false;
-                tasteGain = 0;
-                return object.getHowTasty();
-            }
-
-            if (timesToBeSpammed == 0){
-                Eaten = true;
-            }
-            timesToBeSpammed--;
-            return tasteGain;
+        if (timesToBeSpammed == 0 ){
+            timesToBeSpammed --;
+            pic.delete();
+            return object.getHowTasty();
+        } else {
+            timesToBeSpammed --;
         }
-        return 0;
+
+        return tasteGain;
     }
 
     public boolean isEaten(){
-        return Eaten;
+        return eaten;
     }
 
     //GETTERS&SETTERS

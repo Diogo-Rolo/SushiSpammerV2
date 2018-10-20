@@ -15,7 +15,8 @@ public class Eater implements KeyboardHandler {
         gameGrid = new Grid(cols, rows);
         cursor = new Cursor();
         kappa = new KeyboardController(this);
-        tastyBar = new TastyBar(Grid.PADDING+gameGrid.getCols()*Grid.CELL_SIZE,(Grid.PADDING+gameGrid.getRows()*Grid.CELL_SIZE- gameGrid.getRows())-Grid.CELL_SIZE);
+        tastyBar = new TastyBar(Grid.PADDING+gameGrid.getCols()*Grid.CELL_SIZE,
+                (Grid.PADDING*2+gameGrid.getRows()*Grid.CELL_SIZE- gameGrid.getRows())-Grid.CELL_SIZE, ((Grid.CELL_SIZE*rows )/2)-10);
     }
 
 
@@ -25,7 +26,6 @@ public class Eater implements KeyboardHandler {
         cursor.swapColor();
         toEat.eatSpam();
         tastyBar.tastyBarIncrement(toEat.eatSpam());
-        System.out.println(toEat.eatSpam());
     }
 
     private void moveDown(){
