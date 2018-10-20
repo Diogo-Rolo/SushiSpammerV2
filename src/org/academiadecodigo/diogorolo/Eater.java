@@ -1,5 +1,6 @@
 package org.academiadecodigo.diogorolo;
 
+import org.academiadecodigo.diogorolo.Timer.Clock;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
@@ -9,17 +10,32 @@ public class Eater implements KeyboardHandler {
     private Cursor cursor;
     private KeyboardController kappa;
     private TastyBar tastyBar;
+    private Clock timer;
+    private boolean gameOver = false;
 
     //CONSTRUCTOR
-    public Eater(){
+
+
+
+    //METHODS
+
+    public void startGame() {
         gameGrid = new Grid();
         cursor = new Cursor();
         kappa = new KeyboardController(this);
         tastyBar = new TastyBar();
+        timer = new Clock();
+
+        timer.start(1);
+/*
+        while(timer.isTimeUp()){
+            this.gameOver = true;
+            System.out.println("gameOver" + gameOver);
+        }
+*/
     }
 
 
-    //METHODS
     private void eatSushi(){
         Cell toEat = gameGrid.getCell(cursor.getCol(),cursor.getRow());
         cursor.swapColor();
@@ -35,6 +51,8 @@ public class Eater implements KeyboardHandler {
     }
 
     private void moveUp(){
+
+
         if(cursor.getRow() == 0){
             return;
         }
@@ -68,6 +86,9 @@ public class Eater implements KeyboardHandler {
     }
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
+        if(timer.isTimeUp()){
+            return;
+        }
         switch (keyboardEvent.getKey()){
             case KeyboardEvent.KEY_SPACE:
                 eatSushi();

@@ -6,6 +6,8 @@ import java.util.TimerTask;
 public class Clock {
 
     private Timer timer;
+    private boolean timeUp = false;
+
 
     public void start(int seconds) {
         timer = new Timer();
@@ -16,12 +18,24 @@ public class Clock {
         timer.cancel();
     }
 
+    public boolean isTimeUp() {
+        return timeUp;
+    }
+
+    public void setTimeUp(boolean test) {
+        this.timeUp = test;
+    }
+
+
+
+
 
 
     //COUNTDOWN
     private class CountDown extends TimerTask {
 
         private int seconds;
+
 
         public CountDown(int seconds) {
             this.seconds = seconds;
@@ -33,6 +47,9 @@ public class Clock {
             if(seconds == -1) {
                 System.out.println("Game over man! Game over!");
                 stop();
+                setTimeUp(true);
+                //System.out.println("timer " + isTimeUp());
+                //System.exit(0);
                 return;
             }
 
