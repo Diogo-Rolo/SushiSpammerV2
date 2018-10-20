@@ -73,17 +73,6 @@ public class Eater implements KeyboardHandler {
         cursor.moveRight();
     }
 
-    private void clearGrid(){
-       gameGrid.clearGrid();
-    }
-
-    private void saveGame(){
-        FileManager.saveGame(gameGrid.toString());
-    }
-
-    private void loadGame(){
-        gameGrid.fromString(FileManager.loadGame());
-    }
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if(timer.isTimeUp()){
@@ -106,13 +95,10 @@ public class Eater implements KeyboardHandler {
                 moveDown();
                 break;
             case KeyboardEvent.KEY_C:
-                clearGrid();
                 break;
             case KeyboardEvent.KEY_S:
-                saveGame();
                 break;
             case KeyboardEvent.KEY_L:
-                loadGame();
                 break;
             default:
                 System.out.println("Something went wrong!");

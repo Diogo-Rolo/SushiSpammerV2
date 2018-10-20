@@ -43,64 +43,6 @@ public class Grid {
         return ROWS;
     }
 
-    //TO DELETE
-    public void clearGrid() {
-        for (Cell[] i : cells) {
-            for (Cell j : i) {
-                if (j.isEaten()) {
-                    j.eatSpam();
-                }
-            }
 
-        }
-    }
-
-    //TO DELETE
-    public void fromString(String[] toPaint) {
-        clearGrid();
-        System.out.println("fromstring called");
-
-        int idx = 0;
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells[i].length; j++) {
-                if (toPaint[idx] == "1") {
-                    System.out.println(toPaint[idx]);
-                    cells[i][j].eatSpam();
-                }
-                idx++;
-            }
-        }
-
-
-        /*for (Cell[] i: cells) {
-            for (Cell j: i) {
-                if (toPaint[idx] == "1"){
-                    System.out.println("wassup");
-                    j.eatSpam();
-                }
-                idx++;
-            }
-
-        }*/
-    }
-
-    //TO CHANGE/DELETE
-    @Override
-    public String toString() {
-        String toWrite = "";
-        for (Cell[] i : cells) {
-            for (Cell j : i) {
-                if (j.isEaten()) {
-                    toWrite += "1";
-                } else {
-                    toWrite += "0";
-                }
-            }
-            toWrite += "\n";
-
-        }
-
-        return toWrite;
-    }
 }
 

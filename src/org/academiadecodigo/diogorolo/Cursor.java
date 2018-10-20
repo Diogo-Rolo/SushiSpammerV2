@@ -3,11 +3,14 @@ package org.academiadecodigo.diogorolo;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
-public class Cursor extends Cell{
-    Rectangle cursor;
+public class Cursor{
+    private Rectangle cursor;
+    private int col;
+    private int row;
 
     public Cursor(){
-        super(0, 0);
+        this.col = 0;
+        this.row = 0;
         cursor = new Rectangle(Grid.PADDING, Grid.PADDING, Grid.CELL_SIZE, Grid.CELL_SIZE);
         cursor.draw();
     }
@@ -40,14 +43,28 @@ public class Cursor extends Cell{
         cursor.setColor(Color.GREEN);
     }
 
+    public int getRow() {
+        return row;
+    }
 
-    @Override
+    public int getCol() {
+        return col;
+    }
+
     public void setCol(boolean dir) {
-        super.setCol(dir);
+        if (dir){
+            col ++;
+        } else {
+            col --;
+        }
     }
 
-    @Override
     public void setRow(boolean dir) {
-        super.setRow(dir);
+        if (dir){
+            row++;
+        } else {
+            row--;
+        }
     }
+
 }
