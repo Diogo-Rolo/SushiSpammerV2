@@ -13,10 +13,12 @@ public class Sushi implements GameObject{
         this.image = type.getImage();
     }
 
+    @Override
     public int getTimesToSpam() {
         return timesToSpam;
     }
 
+    @Override
     public int getHowTasty() {
         return howTasty;
     }
