@@ -12,6 +12,7 @@ public class Cursor{
         this.col = 0;
         this.row = 0;
         cursor = new Rectangle(Grid.PADDING, Grid.PADDING, Grid.CELL_SIZE, Grid.CELL_SIZE);
+        cursor.setColor(Color.RED);
         cursor.draw();
     }
 
@@ -37,7 +38,7 @@ public class Cursor{
 
     public void swapColor(){
         if (cursor.getColor() == Color.GREEN){
-            cursor.setColor(Color.BLACK);
+            cursor.setColor(Color.RED);
             return;
         }
         cursor.setColor(Color.GREEN);

@@ -2,8 +2,8 @@ package org.academiadecodigo.diogorolo;
 
 public enum SushiType {
     MAKI (5, 10, "Resources/maki.png"),
-    URAMAKI (5, 10, "Resources/sushitest2.jpg"),
-    SASHIMI (5, 10, "Resources/sashimi.png"),
+    URAMAKI (5, 10, "Resources/uramaki.png"),
+    SASHIMI (3, 5, "Resources/sashimi.png"),
     NIGIRI (9, 10, "Resources/nigiri.png"),
     TEMAKI (3, 30, "Resources/temaki.png");
 

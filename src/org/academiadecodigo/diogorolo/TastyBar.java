@@ -27,7 +27,7 @@ public class TastyBar {
         this.maximumTastybarSize = ((Grid.CELL_SIZE * Grid.ROWS) / 2) - 25;
 
         tastyBarRectangle = new Rectangle(Grid.COLS * Grid.CELL_SIZE + Grid.PADDING,Grid.ROWS * Grid.CELL_SIZE + Grid.PADDING - Grid.CELL_SIZE, Grid.CELL_SIZE, Grid.CELL_SIZE);
-        tastyBarRectangle.setColor(Color.CYAN);
+        tastyBarRectangle.setColor(Color.GREEN);
         tastyBarRectangle.fill();
     }
 

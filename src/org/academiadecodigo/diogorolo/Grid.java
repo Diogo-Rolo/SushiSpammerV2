@@ -1,15 +1,20 @@
 package org.academiadecodigo.diogorolo;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+
 public class Grid {
     //PROPERTIES
     public static final int COLS = 10;
     public static final int ROWS = 10;
     public static final int CELL_SIZE = 50;
-    public static final int PADDING = 300;
+    public static final int PADDING = 50;
+    private Picture gridBackground;
     private Cell[][] cells;
 
     //CONSTRUCTOR
     public Grid() {
+        gridBackground = new Picture(PADDING, PADDING, "Resources/gridBackground.jpg");
+        gridBackground.draw();
         cells = new Cell[ROWS][COLS];
         setCells();
     }

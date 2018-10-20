@@ -27,12 +27,15 @@ public class Eater implements KeyboardHandler {
         timer = new Clock();
 
         timer.start(20);
-/*
+
         while(timer.isTimeUp()){
             this.gameOver = true;
             System.out.println("gameOver" + gameOver);
         }
-*/
+        if (timer.isTimeUp()){
+            return;
+        }
+
     }
 
 
