@@ -8,9 +8,7 @@ public class Cell {
     private int col;
     private int row;
     private int timesToBeSpammed;
-    private boolean eaten;
     private Picture pic;
-    private boolean hasSushi = true;
     private GameObject object;
 
     //CONSTRUCTOR
@@ -25,13 +23,7 @@ public class Cell {
     }
 
     //METHODS
-    public int getRow() {
-        return row;
-    }
 
-    public int getCol() {
-        return col;
-    }
 
     public int eatSpam(){
         int tasteGain = 0;
@@ -47,24 +39,12 @@ public class Cell {
         return tasteGain;
     }
 
-    public boolean isEaten(){
-        return eaten;
+    //GETTERS SETTERS
+    public int getRow() {
+        return row;
     }
 
-    //GETTERS&SETTERS
-    public void setCol(boolean dir) {
-        if (dir){
-            col ++;
-        } else {
-            col --;
-        }
-    }
-
-    public void setRow(boolean dir) {
-        if (dir){
-            row++;
-        } else {
-            row--;
-        }
+    public int getCol() {
+        return col;
     }
 }
