@@ -3,6 +3,7 @@ package org.academiadecodigo.diogorolo;
 import org.academiadecodigo.diogorolo.Timer.Clock;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Eater implements KeyboardHandler {
     //PROPERTIES
@@ -26,16 +27,17 @@ public class Eater implements KeyboardHandler {
         tastyBar = new TastyBar();
         timer = new Clock();
 
-        timer.start(20);
+        timer.start(10);
 
         while(timer.isTimeUp()){
             this.gameOver = true;
             System.out.println("gameOver" + gameOver);
+
         }
         if (timer.isTimeUp()){
             return;
         }
-
+return;
     }
 
 
@@ -43,7 +45,12 @@ public class Eater implements KeyboardHandler {
         Cell toEat = gameGrid.getCell(cursor.getCol(),cursor.getRow());
         cursor.swapColor();
         toEat.eatSpam();
-        tastyBar.tastyBarIncrement(toEat.eatSpam());
+        if (tastyBar.tastyBarIncrement(toEat.eatSpam())){
+            Picture win = new Picture(10, 10, "Resources/WINI_WIN.png");
+            win.draw();
+            timer.stop();
+            gameOver = true;
+        }
     }
 
     private void moveDown(){
