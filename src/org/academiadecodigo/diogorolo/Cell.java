@@ -12,6 +12,13 @@ public class Cell {
     private GameObject object;
 
     //CONSTRUCTOR
+
+    /**
+     * Fills the array of cells with newly created cells, giving each one a corresponding image,
+     * position and an amount of times to be clicked. Receives row and col to start the cell on those coordinates.
+     * @param row
+     * @param col
+     */
     public Cell(int row, int col){
         this.row = row;
         this.col = col;
@@ -24,14 +31,19 @@ public class Cell {
 
     //METHODS
 
-
+    /**
+     * Decreases the food's "hp", when passing 0 returns the amount for the tasty bar to grow ("score").
+     * @return int
+     */
     public int eatSpam(){
         int tasteGain = 0;
 
         if (timesToBeSpammed == 0 ){
             timesToBeSpammed --;
             pic.delete();
-            return object.getHowTasty();
+            int tester = object.getHowTasty();
+            System.out.println(tester + "TESTER VALUE; RETURN FROM EATSPAM");
+            return tester;
         } else {
             timesToBeSpammed --;
         }

@@ -1,14 +1,12 @@
 package org.academiadecodigo.diogorolo;
 
-import org.academiadecodigo.diogorolo.Timer.Clock;
 
 public class Main {
     public static void main(String[] args) {
 
+        Game game = new Game();
 
-
-        Eater eater = new Eater();
-        eater.startGame();
+        game.startGame();
     }
 
 }

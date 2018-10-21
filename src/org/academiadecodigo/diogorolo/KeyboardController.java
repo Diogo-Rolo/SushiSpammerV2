@@ -6,12 +6,12 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 
 public class KeyboardController {
-    Eater eater;
+    Game game;
     Keyboard k;
 
-    public KeyboardController(Eater p){
-        eater = p;
-        k = new Keyboard(eater);
+    public KeyboardController(Game p){
+        game = p;
+        k = new Keyboard(game);
 
         KeyboardEvent spaceBar = new KeyboardEvent();
         spaceBar.setKey(KeyboardEvent.KEY_SPACE);

@@ -4,10 +4,10 @@ public interface GameObject {
     //PROPERTIES
 
 
-    public int getTimesToSpam();
+    int getTimesToSpam();
 
-    public int getHowTasty();
+    int getHowTasty();
 
-    public String getImage();
+    String getImage();
 
 }

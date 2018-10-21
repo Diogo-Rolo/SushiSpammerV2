@@ -4,8 +4,9 @@ import org.academiadecodigo.diogorolo.Timer.Clock;
 import org.academiadecodigo.diogorolo.Timer.Numbers;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class Eater implements KeyboardHandler {
+public class Game implements KeyboardHandler {
     //PROPERTIES
     private Grid gameGrid;
     private Cursor cursor;
@@ -29,20 +30,30 @@ public class Eater implements KeyboardHandler {
 
 
         timer.start(21, Numbers.TWO, Numbers.ZERO);
-/*
+
+
         while(timer.isTimeUp()){
             this.gameOver = true;
             System.out.println("gameOver" + gameOver);
+
         }
-*/
+        if (timer.isTimeUp()){
+            return;
+        }
+return;
     }
 
 
     private void eatSushi(){
         Cell toEat = gameGrid.getCell(cursor.getCol(),cursor.getRow());
         cursor.swapColor();
-        toEat.eatSpam();
-        tastyBar.tastyBarIncrement(toEat.eatSpam());
+        //toEat.eatSpam();
+        if (tastyBar.tastyBarIncrement(toEat.eatSpam())){
+            Picture win = new Picture(10, 10, "Resources/WINI_WIN.png");
+            win.draw();
+            timer.stop();
+            gameOver = true;
+        }
     }
 
     private void moveDown(){

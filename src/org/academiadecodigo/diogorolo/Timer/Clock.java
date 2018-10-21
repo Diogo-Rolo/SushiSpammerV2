@@ -73,7 +73,11 @@ public class Clock {
         @Override
         public void run() {
 
+
             if(seconds == 1) {
+
+                Picture loose = new Picture(10, 10 , "Resources/LOOSE_LOOSE.png");
+                loose.draw();
                 System.out.println("Game over man! Game over!");
                 stop();
                 setTimeUp(true);
@@ -98,7 +102,7 @@ public class Clock {
 
             unitsImage.draw();
             System.out.println(units);
-            //System.out.println("Timer: " + seconds--);
+
         }
     }
 
