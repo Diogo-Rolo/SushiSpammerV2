@@ -27,7 +27,7 @@ public class Game implements KeyboardHandler {
         tastyBar = new TastyBar();
         timer = new Clock();
 
-        timer.start(10);
+        timer.start(1000000);
 
         while(timer.isTimeUp()){
             this.gameOver = true;
@@ -44,7 +44,7 @@ return;
     private void eatSushi(){
         Cell toEat = gameGrid.getCell(cursor.getCol(),cursor.getRow());
         cursor.swapColor();
-        toEat.eatSpam();
+        //toEat.eatSpam();
         if (tastyBar.tastyBarIncrement(toEat.eatSpam())){
             Picture win = new Picture(10, 10, "Resources/WINI_WIN.png");
             win.draw();

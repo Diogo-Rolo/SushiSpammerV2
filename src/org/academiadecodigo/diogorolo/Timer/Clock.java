@@ -57,7 +57,7 @@ public class Clock {
                 return;
             }
 
-            System.out.println("Timer: " + seconds--);
+            //System.out.println("Timer: " + seconds--);
         }
     }
 

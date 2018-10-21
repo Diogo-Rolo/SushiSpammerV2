@@ -10,7 +10,7 @@ public class TastyBar {
 
     private Rectangle tastyBarRectangle;
     private int maximumTastybarSize;
-
+    private int totalBarIncremented;
 
     //CONSTRUCTOR
 
@@ -18,13 +18,13 @@ public class TastyBar {
      * TastyBar Position
      *
      * Limit until the tastybar is filled
-     * @param maximumTastybarSize
      */
 
 
     public TastyBar (){
 
         this.maximumTastybarSize = ((Grid.CELL_SIZE * Grid.ROWS) / 2) - 25;
+        this.totalBarIncremented = 0 ;
 
         tastyBarRectangle = new Rectangle(Grid.COLS * Grid.CELL_SIZE + Grid.PADDING,Grid.ROWS * Grid.CELL_SIZE + Grid.PADDING - Grid.CELL_SIZE, Grid.CELL_SIZE / 2, Grid.CELL_SIZE);
         tastyBarRectangle.setColor(Color.GREEN);
@@ -33,14 +33,17 @@ public class TastyBar {
 
 
     //METHODS
-
     /**
      * translate called as grow grows both sides.
      * @param tastyBarPointsIncrement
      */
-    int totalBarIncremented = 0 ;
+
 
     public boolean tastyBarIncrement (int tastyBarPointsIncrement) {
+
+        System.out.println("::::::::::::::::::::::::::::::::::::::::");
+        System.out.println(tastyBarPointsIncrement);
+        System.out.println("::::::::::::::::::::::::::::::::::::::::");
 
         if (totalBarIncremented >= maximumTastybarSize) {
             return true; }

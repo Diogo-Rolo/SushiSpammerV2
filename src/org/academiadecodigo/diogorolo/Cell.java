@@ -27,10 +27,6 @@ public class Cell {
 
         pic = new Picture(col * Grid.CELL_SIZE + Grid.PADDING, row * Grid.CELL_SIZE + Grid.PADDING, object.getImage());
         pic.draw();
-        System.out.println(timesToBeSpammed);
-        System.out.println(object.getHowTasty());
-        System.out.println(object.getImage());
-        System.out.println("--------------------");
     }
 
     //METHODS
@@ -45,7 +41,9 @@ public class Cell {
         if (timesToBeSpammed == 0 ){
             timesToBeSpammed --;
             pic.delete();
-            return object.getHowTasty();
+            int tester = object.getHowTasty();
+            System.out.println(tester + "TESTER VALUE; RETURN FROM EATSPAM");
+            return tester;
         } else {
             timesToBeSpammed --;
         }
