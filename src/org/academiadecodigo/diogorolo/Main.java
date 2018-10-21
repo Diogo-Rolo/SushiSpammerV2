@@ -4,10 +4,9 @@ package org.academiadecodigo.diogorolo;
 public class Main {
     public static void main(String[] args) {
 
-        Eater eater = new Eater();
+        Game game = new Game();
 
-
-        eater.startGame();
+        game.startGame();
     }
 
 }

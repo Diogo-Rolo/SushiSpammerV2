@@ -26,7 +26,7 @@ public class TastyBar {
 
         this.maximumTastybarSize = ((Grid.CELL_SIZE * Grid.ROWS) / 2) - 25;
 
-        tastyBarRectangle = new Rectangle(Grid.COLS * Grid.CELL_SIZE + Grid.PADDING,Grid.ROWS * Grid.CELL_SIZE + Grid.PADDING - Grid.CELL_SIZE, Grid.CELL_SIZE, Grid.CELL_SIZE);
+        tastyBarRectangle = new Rectangle(Grid.COLS * Grid.CELL_SIZE + Grid.PADDING,Grid.ROWS * Grid.CELL_SIZE + Grid.PADDING - Grid.CELL_SIZE, Grid.CELL_SIZE / 2, Grid.CELL_SIZE);
         tastyBarRectangle.setColor(Color.GREEN);
         tastyBarRectangle.fill();
     }
@@ -40,16 +40,16 @@ public class TastyBar {
      */
     int totalBarIncremented = 0 ;
 
-    public void tastyBarIncrement (int tastyBarPointsIncrement) {
+    public boolean tastyBarIncrement (int tastyBarPointsIncrement) {
 
         if (totalBarIncremented >= maximumTastybarSize) {
-            return; }
+            return true; }
 
         if (totalBarIncremented + tastyBarPointsIncrement >= maximumTastybarSize){
             tastyBarRectangle.grow(0, (maximumTastybarSize - totalBarIncremented));
             tastyBarRectangle.translate(0 , - (maximumTastybarSize - totalBarIncremented));
             totalBarIncremented += (maximumTastybarSize - totalBarIncremented);
-            return;
+            return true;
         }
 
         totalBarIncremented += tastyBarPointsIncrement;
@@ -60,6 +60,7 @@ public class TastyBar {
         System.out.println(totalBarIncremented + "tasty total");
         System.out.println(tastyBarPointsIncrement + "tasty increment");
         System.out.println("-----------------------------");
+        return false;
     }
 
 }

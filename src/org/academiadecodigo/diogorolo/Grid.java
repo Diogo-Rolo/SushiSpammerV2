@@ -13,6 +13,9 @@ public class Grid {
 
     //CONSTRUCTOR
     public Grid() {
+        Picture test = new Picture(10 , 10 , "Resources/startScreen.jpg");
+        test.draw();
+
         gridBackground = new Picture(PADDING, PADDING, "Resources/gridBackground.jpg");
         gridBackground.draw();
         cells = new Cell[ROWS][COLS];
