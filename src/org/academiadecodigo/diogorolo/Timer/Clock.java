@@ -9,9 +9,9 @@ public class Clock {
     private boolean timeUp = false;
 
 
-    public void start(int seconds) {
+    public void start(int seconds, Numbers tens, Numbers units) {
         timer = new Timer();
-        timer.schedule(new CountDown(seconds), 1000, 1000);
+        timer.schedule(new CountDown(seconds, tens, units), 1000, 1000);
     }
 
     public void stop() {
@@ -35,10 +35,15 @@ public class Clock {
     private class CountDown extends TimerTask {
 
         private int seconds;
+        private Numbers units;
+        private Numbers tens;
 
 
-        public CountDown(int seconds) {
+
+        public CountDown(int seconds, Numbers tens, Numbers units) {
             this.seconds = seconds;
+            this.tens = tens;
+            this.units = units;
         }
 
         @Override
@@ -53,7 +58,15 @@ public class Clock {
                 return;
             }
 
-            System.out.println("Timer: " + seconds--);
+            this.seconds--;
+            if(seconds%10 == 0){
+                this.tens = tens.getNext();
+                System.out.println(tens);
+                //System.out.println(seconds);
+            }
+            this.units = units.getNext();
+            System.out.println(units);
+            //System.out.println("Timer: " + seconds--);
         }
     }
 

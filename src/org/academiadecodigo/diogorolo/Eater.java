@@ -1,6 +1,8 @@
 package org.academiadecodigo.diogorolo;
 
 import org.academiadecodigo.diogorolo.Timer.Clock;
+import org.academiadecodigo.diogorolo.Timer.Display;
+import org.academiadecodigo.diogorolo.Timer.Numbers;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
@@ -11,6 +13,7 @@ public class Eater implements KeyboardHandler {
     private KeyboardController kappa;
     private TastyBar tastyBar;
     private Clock timer;
+    private Display timerDisplay;
     private boolean gameOver = false;
 
     //CONSTRUCTOR
@@ -25,8 +28,11 @@ public class Eater implements KeyboardHandler {
         kappa = new KeyboardController(this);
         tastyBar = new TastyBar();
         timer = new Clock();
+        timerDisplay = new Display();
 
-        timer.start(20);
+
+        timer.start(20, Numbers.TWO, Numbers.ZERO);
+        timerDisplay.start();
 /*
         while(timer.isTimeUp()){
             this.gameOver = true;
