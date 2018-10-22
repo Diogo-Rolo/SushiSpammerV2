@@ -92,9 +92,10 @@ return;
             return;
         }
         switch (keyboardEvent.getKey()){
-            case KeyboardEvent.KEY_SPACE:
+            /*case KeyboardEvent.KEY_SPACE:
                 eatSushi();
                 break;
+                */
             case KeyboardEvent.KEY_LEFT:
                 moveLeft();
                 break;
@@ -121,5 +122,11 @@ return;
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
+        switch (keyboardEvent.getKey()){
+            case KeyboardEvent.KEY_SPACE:
+                eatSushi();
+                break;
+            default:
+                System.out.println("somethin is wrong");}
     }
 }

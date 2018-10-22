@@ -15,7 +15,7 @@ public class KeyboardController {
 
         KeyboardEvent spaceBar = new KeyboardEvent();
         spaceBar.setKey(KeyboardEvent.KEY_SPACE);
-        spaceBar.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        spaceBar.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
         k.addEventListener(spaceBar);
 
         KeyboardEvent left = new KeyboardEvent();
