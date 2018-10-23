@@ -41,9 +41,6 @@ public class TastyBar {
 
     public boolean tastyBarIncrement (int tastyBarPointsIncrement) {
 
-        System.out.println("::::::::::::::::::::::::::::::::::::::::");
-        System.out.println(tastyBarPointsIncrement);
-        System.out.println("::::::::::::::::::::::::::::::::::::::::");
 
         if (totalBarIncremented >= maximumTastybarSize) {
             return true; }
@@ -59,10 +56,6 @@ public class TastyBar {
         tastyBarRectangle.translate(0, -tastyBarPointsIncrement);
         tastyBarRectangle.grow(0, tastyBarPointsIncrement);
 
-
-        System.out.println(totalBarIncremented + "tasty total");
-        System.out.println(tastyBarPointsIncrement + "tasty increment");
-        System.out.println("-----------------------------");
         return false;
     }
 

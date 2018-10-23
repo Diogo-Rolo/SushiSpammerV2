@@ -15,6 +15,9 @@ public class Clock {
 
 
     public void start(int seconds, Numbers tens, Numbers units) {
+        //TESTS
+        System.out.println();
+        //TESTS
         timer = new Timer();
         timer.schedule(new CountDown(seconds, tens, units), 1000, 1000);
     }
@@ -56,7 +59,7 @@ public class Clock {
             this.units = units;
             background = new Rectangle(Grid.COLS * Grid.CELL_SIZE + Grid.PADDING, Grid.ROWS * Grid.CELL_SIZE +
                     Grid.PADDING - Grid.CELL_SIZE, 144, 77);
-            background.setColor(Color.WHITE);
+            background.setColor(Color.GREEN);
             background.fill();
             tensImage = new Picture( Grid.COLS * Grid.CELL_SIZE + Grid.PADDING, Grid.ROWS * Grid.CELL_SIZE +
                     Grid.PADDING - Grid.CELL_SIZE, tens.getImage());

@@ -33,4 +33,19 @@ public enum Numbers {
     public String getImage() {
         return image;
     }
+
+    public static String getImageByNum(int number) {
+        String image = null;
+        for (Numbers num: Numbers.values()) {
+            if (num.getNumber() == number) {
+               image = num.getImage();
+            }
+        }
+
+        if (image == null) {
+            throw new IllegalArgumentException("number not found");
+        }
+
+        return image;
+    }
 }

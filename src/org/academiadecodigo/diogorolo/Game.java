@@ -92,10 +92,6 @@ return;
             return;
         }
         switch (keyboardEvent.getKey()){
-            /*case KeyboardEvent.KEY_SPACE:
-                eatSushi();
-                break;
-                */
             case KeyboardEvent.KEY_LEFT:
                 moveLeft();
                 break;

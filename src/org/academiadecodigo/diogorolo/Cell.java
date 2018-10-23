@@ -42,7 +42,6 @@ public class Cell {
             timesToBeSpammed --;
             pic.delete();
             int tester = object.getHowTasty();
-            System.out.println(tester + "TESTER VALUE; RETURN FROM EATSPAM");
             return tester;
         } else {
             timesToBeSpammed --;
